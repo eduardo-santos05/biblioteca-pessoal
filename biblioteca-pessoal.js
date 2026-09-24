@@ -1,7 +1,16 @@
 import PromptSync from "prompt-sync"
 const prompt = PromptSync()
 
+let colecao = []
+
+let livro = {
+    titulo: '',
+    autor: '',
+    genero: ''
+}
+
 let opcao = ''
+
 do {
     console.log('\n=== Biblioteca Pessoal ===')
     console.log('1. Cadastrar livro')
