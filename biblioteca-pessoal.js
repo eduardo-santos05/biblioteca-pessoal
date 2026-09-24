@@ -88,7 +88,13 @@ do {
             break
         case '4':
             removerLivro()
-            break    
+            break 
+        case '0':
+            console.log('Saindo do sistema. Até logo!') 
+            break
+        default:
+            console.log("Opção inválida! Digite '1', '2', '3', '4' ou '0'.") 
+            break 
     }
     
 } while(opcao !== '0')
