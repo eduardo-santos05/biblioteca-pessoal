@@ -27,7 +27,16 @@ do {
             livro.autor = prompt('Informe o autor do livro: ')
             livro.genero = prompt('Informe o gênero do livro: ')
             colecao.push(livro)
-            console.log(colecao)
+            console.log('Livro cadastrado com sucesso!')
+        case '2':
+            if (colecao.length === 0) {
+                console.log('Nenhum livro cadastrado.')
+            } else {
+                let status = 'quero ler'
+                for (let i = 0; i < colecao.length; i++) {
+                    console.log(`${i+1}. [${status}] ${livro.titulo} - ${livro.genero} - ${livro.autor}`)
+                }  
+            }  
     }
 
 } while(opcao !== '0')
