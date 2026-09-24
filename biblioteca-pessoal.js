@@ -52,8 +52,12 @@ do {
                 if (colecao[i].numero === numLivroBuscado) {
                     livroEncontrado = true
                     novoStatus = prompt('Novo status (quero ler/lendo/lido): ')
-                    livro.status = novoStatus
-                    console.log('Status atualizado com sucesso!')
+                    if (novoStatus === 'quero ler' || novoStatus === 'lendo' || novoStatus === 'lido') {
+                        livro.status = novoStatus
+                        console.log('Status atualizado com sucesso!')
+                    } else {
+                        console.log('Status inválido. Use "quero ler", "lendo" ou "lido".')
+                    }
                 }
             }
             if (!livroEncontrado) {
