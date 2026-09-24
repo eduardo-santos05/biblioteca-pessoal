@@ -21,4 +21,13 @@ do {
     
     opcao = prompt('Escolha uma opção: ')
 
+    switch (opcao) {
+        case '1':
+            livro.titulo = prompt('Informe o título do livro: ')
+            livro.autor = prompt('Informe o autor do livro: ')
+            livro.genero = prompt('Informe o gênero do livro: ')
+            colecao.push(livro)
+            console.log(colecao)
+    }
+
 } while(opcao !== '0')
