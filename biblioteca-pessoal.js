@@ -4,9 +4,11 @@ const prompt = PromptSync()
 let colecao = []
 
 let livro = {
+    numero: 0,
     titulo: '',
     autor: '',
-    genero: ''
+    genero: '',
+    status: 'quero ler'
 }
 
 let opcao = ''
@@ -26,17 +28,38 @@ do {
             livro.titulo = prompt('Informe o título do livro: ')
             livro.autor = prompt('Informe o autor do livro: ')
             livro.genero = prompt('Informe o gênero do livro: ')
+            for (let i = 0; i <= colecao.length; i++) {
+                livro.numero = i+1
+            }
             colecao.push(livro)
             console.log('Livro cadastrado com sucesso!')
+            break
         case '2':
             if (colecao.length === 0) {
                 console.log('Nenhum livro cadastrado.')
             } else {
-                let status = 'quero ler'
                 for (let i = 0; i < colecao.length; i++) {
-                    console.log(`${i+1}. [${status}] ${livro.titulo} - ${livro.genero} - ${livro.autor}`)
+                    console.log(`${i+1}. [${livro.status}] ${livro.titulo} - ${livro.genero} - ${livro.autor}`)
                 }  
             }  
+            break
+        case '3':
+            let novoStatus = ''
+            let livroEncontrado = false
+            let numLivroBuscado = Number(prompt('Informe o número do livro: '))
+            
+            for (let i = 0; i < colecao.length; i++) {
+                if (colecao[i].numero === numLivroBuscado) {
+                    livroEncontrado = true
+                    novoStatus = prompt('Novo status (quero ler/lendo/lido): ')
+                    livro.status = novoStatus
+                    console.log('Status atualizado com sucesso!')
+                }
+            }
+            if (!livroEncontrado) {
+                console.log('Livro não encontrado.')
+            }
+            break
     }
 
 } while(opcao !== '0')
